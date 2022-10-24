@@ -18,3 +18,6 @@ class Model:
             X_train = np.hstack((X, np.ones((n, 1))))
         y_pred = X_train @ self.w
         return y_pred
+    
+    def get_weights(self):
+        return self.w
