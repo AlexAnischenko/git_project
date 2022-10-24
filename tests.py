@@ -1,0 +1,1 @@
+assert "something" == "something"
