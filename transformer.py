@@ -1,4 +1,4 @@
-class Transformer:
+class Tranformer:
     def __init__(self, percent, imp_estimator=None):
         self.percent = percent
         if imp_estimator is None:
@@ -17,4 +17,4 @@ class Transformer:
         X = self.imputer.transform(X)
         X = self.scaler.transform(X)
         X = X[:, self.mask]
-        :return X
+        return X
