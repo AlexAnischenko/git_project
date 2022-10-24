@@ -1,6 +1,13 @@
 class Model:
-    def __init__(self, model):
-        self.model = model
+    def __init__(self, fit_intercept=True):
+        self.fit_intercept = fit_intercept
 
-    def fit(self, X_train, y_train):
-        self.model.fit(X_train, y_train)
+    def fit(self, X, y):
+        n, k = X.shape
+                                                                
+        X_train = X
+        if self.fit_intercept:
+            X_train = np.hstack((X, np.ones((n, 1))))
+
+        self.w = np.linalg.inv(X_train.T @ X_train) @ X_train.T @ y
+        return self
